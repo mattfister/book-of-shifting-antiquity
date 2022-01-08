@@ -1,8 +1,5 @@
-
 import tracery from '../utilities/tracery'
-import baseEngModifiers from '../utilities/mods-eng-basic'
 import seedrandom from 'seedrandom';
-import artifacts from '../grammars/artifacts'
 
 export function generateArtifact(page, context) {
     
@@ -15,9 +12,9 @@ export function generateArtifact(page, context) {
         "description-image": "artifact.png",
     
         "nameStart": ["Ch","B","W","T","P","Y","L","G","Gr","Z","C","V","B","N","M"],
-        "nameSyl": ["is","ar","us","os","in","it","ix","ast","or","arth","irth","unt","as","y"],
+        "nameSyl": ["is","ar","us","os","in","it","ix","ast","or","arth","irth","aunt","as","y"],
     
-        "name": ["#nameStart##nameSyl#", "#nameStart##nameSyl#", "#nameStart##nameSyl##nameSyl#", "#nameStart##nameSyl##nameSyl##nameSyl#"],
+        "name": ["#nameStart##nameSyl#", "#nameStart##nameSyl#", "#nameStart##nameSyl##nameSyl#", "#nameStart##nameSyl##nameSyl##nameSyl#", "#nameStart##nameSyl# #nameStart##nameSyl#"],
     
         "shapephrase": ["has the form of", "is a powerful artifact in the shape of", "looks like"],
         "formAdj": ["broken", "smooth", "warm", "cold", "sharp", "wet", "soft", "hard", "mushy", "transparent", "glassy", "opaque"],
@@ -50,6 +47,8 @@ export function generateArtifact(page, context) {
         "inscription": ["For #name#", "#artifact# should not be #activated#"],
         "inscriptionSentence": ["", " Inscribed on it, the following words appear, '#inscription#'."],
     
+        "quality": ["A Powerful", "A Mysterious", "An Unknown", "A Legendary", "A Forgotten"],
+
         "artifactDescription": "#formSentence##colorSentence##createdSentence##whenSentence##inscriptionSentence#",
     
         "1-artifact-title": "",
@@ -61,7 +60,8 @@ export function generateArtifact(page, context) {
     let name = grammar.flatten("#[artifact:#name#][activated:#action#]name#")
     let title = name;
     let description = grammar.flatten('#[artifact:'+name+'][activated:#action#]artifactDescription#');
-    let type = 'An Artifact'
+    let quality = grammar.flatten('#quality#');
+    let summary = quality + ' Artifact';
 
-    return {"title": title, "name": name, "description": description, "type": type}
+    return {"title": title, "name": name, "description": description, "summary": summary}
 }

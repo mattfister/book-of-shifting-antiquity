@@ -2,33 +2,34 @@ import Header from "./Header";
 import { Card, Container } from "react-bootstrap"
 import { getPageLink, getPageSeed, getRandom } from "../utilities/SeedUtils";
 import { Link } from "react-router-dom"
-import { generateArtifact } from "../generators/artifact";
+import { generateContent } from "../generators/contentGenerator";
 
 function getBookmarkInfo(i) {
     let seed = Math.floor(new Date()/8.64e7) + i;
     let pageLink = getPageLink(seed);
     let pageSeed = getPageSeed(seed);
-    let artifact = generateArtifact(pageSeed);
+    let artifact = generateContent(pageSeed);
     return {seed, pageLink, artifact}
 }
 
 const HomePage = () => {
+
+    let bookmarks = [...Array(10)].map((x, i) => getBookmarkInfo(i) );
+
     return (
         <>
             <Header></Header>
             <Container>
-            This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
-            { getRandom() }
+                This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
             </Container>
             
-            {[...Array(10)].map((x, i) =>
+            {bookmarks.map((x, i) =>
                 <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                    <Card.Title><Link to={getBookmarkInfo(i).pageLink}>{getBookmarkInfo(i).artifact.title}</Link></Card.Title>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                    </Card.Text>
+                    <Card.Title><Link to={x.pageLink}>{x.artifact.title}</Link></Card.Title>
+                        <Card.Text>
+                            {x.artifact.summary}
+                        </Card.Text>
                     </Card.Body>
                 </Card>
             )}
