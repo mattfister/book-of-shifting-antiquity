@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Routes, Route, HashRouter } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Page from './components/Page';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="page/*" element={<Page/>} />
+      </Routes>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
