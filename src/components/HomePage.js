@@ -1,14 +1,15 @@
 import Header from "./Header";
 import { Container, Row, Col } from "react-bootstrap"
-import { getPageLink, getPageSeed, getRandom } from "../utilities/SeedUtils";
+import { getContextSeedsFromSeedString, getPageLink, getPageSeedAndContext, getPageSeed } from "../utilities/SeedUtils";
 import { generateContent } from "../generators/contentGenerator";
 import Bookmark from "./Bookmark";
 
 function getBookmarkInfo(i) {
     let seed = Math.floor(new Date()/8.64e7) + i;
     let pageLink = getPageLink(seed);
+    let pageSeedAndContext = getPageSeedAndContext(seed);
     let pageSeed = getPageSeed(seed);
-    let content = generateContent(pageSeed);
+    let content = generateContent(pageSeed, getContextSeedsFromSeedString(pageSeed));
     return {seed, pageLink, content}
 }
 
@@ -30,10 +31,8 @@ const HomePage = () => {
                         <Bookmark title={x.content.title} link={x.pageLink} summary={x.content.summary}/>
                     </Col>
                     )}
-                </Row>
-                
+                </Row> 
             </Container>
-
         </>
     );
 };

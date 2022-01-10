@@ -1,8 +1,7 @@
-
 import tracery from '../utilities/tracery'
 import seedrandom from 'seedrandom';
 
-export function generateHorror(page, context) {
+export function generateHorror(page, contexts, genContexts=true) {
     
     tracery.setRandom(new seedrandom(page));
 
@@ -53,5 +52,7 @@ export function generateHorror(page, context) {
     let description =  grammar.flatten('#[horror:'+name+']horror-description#');
     let summary = 'An Unspeakable Horror';
 
-    return {"title": title, "name": name, "description": description, "summary": summary}
+    let links = {};
+
+    return {"title": title, "name": name, "description": description, "summary": summary, "type": "horror", "links": links}
 }

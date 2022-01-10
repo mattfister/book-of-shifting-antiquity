@@ -1,7 +1,9 @@
 import tracery from '../utilities/tracery'
 import seedrandom from 'seedrandom';
+import { getContextLink, getContextSeedsFromPath, getPageLink } from '../utilities/SeedUtils';
+import { generateContent } from './contentGenerator';
 
-export function generateArtifact(page, context) {
+export function generateArtifact(page, contexts = [], genContexts=true) {
     
     tracery.setRandom(new seedrandom(page));
 
@@ -60,8 +62,22 @@ export function generateArtifact(page, context) {
     let name = grammar.flatten("#[artifact:#name#][activated:#action#]name#")
     let title = name;
     let description = grammar.flatten('#[artifact:'+name+'][activated:#action#]artifactDescription#');
+    
+    let links = {}
+    if (genContexts) {
+        contexts.forEach(context => {
+            let content = generateContent(context, [page], false);
+            if (content.type === "city") {
+                description += " " + name + " is located in " + content.name + "."
+                links[content.name] = getContextLink(context, [page]);
+            }
+            
+        }) 
+    }
     let quality = grammar.flatten('#quality#');
     let summary = quality + ' Artifact';
 
-    return {"title": title, "name": name, "description": description, "summary": summary}
+    console.log(links);
+
+    return {"title": title, "name": name, "description": description, "summary": summary, "type": "artifact", "links": links}
 }

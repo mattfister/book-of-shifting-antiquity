@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import HomePage from './components/HomePage';
@@ -10,10 +9,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <HashRouter forceRefresh>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="page/*" element={<Page/>} />
+        <Route exact path="/" element={<HomePage/>} />
+        <Route path="/page/:page" element={<Page/>} />
       </Routes>
     </HashRouter>
   </React.StrictMode>,
