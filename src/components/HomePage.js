@@ -20,8 +20,8 @@ const HomePage = () => {
     return (
         <>
             <Header></Header>
-            <Container className="mx-auto pt-5" style={{width: '960px'}}>
-                <Row className="mx-auto mb-5" style={{width: '640px'}}>
+            <Container className="mx-auto pt-5" style={{maxWidth: '960px'}}>
+                <Row className="mx-auto mb-5" style={{maxWidth: '640px'}}>
                 This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
                 </Row>
                 <h4 className="mx-auto pb-3 text-center">Bookmarks</h4>
