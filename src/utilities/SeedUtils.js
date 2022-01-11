@@ -81,7 +81,7 @@ export function getPageLink(seed, contexts = []) {
 }
 
 export function getRandomPageLink() {
-    var link ='/book-of-shifting-antiquity/#/' + getPageSeedAndContext(Date.now());
+    var link ='/book-of-shifting-antiquity/#/page/' + getPageSeedAndContext(Date.now());
     return link;
 }
 
