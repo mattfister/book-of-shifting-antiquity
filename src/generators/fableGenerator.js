@@ -9,7 +9,7 @@ export function generateFable(page, contexts, genContexts=true) {
         "title": "Fables",
     
         "typeOfStory": ["Tale", "Fable", "Myth", "Legend"],
-        "name": ["The #typeOfStory# of the #subject# and the #character#."],
+        "name": ["The #typeOfStory# of the #subject# and the #character#"],
 
         "character": ["Turtle", "Frog", "Scorpion", "Snake", "Bear", "Antelope", "Wizard", "Fairy Queen", "Fairy", "Knight", "Warlock", "Witch", "Baker", "King", "Queen", "Merchant"],
         "charAdj": ["wise", "foolish", "stupid", "greedy", "strange"],
@@ -56,7 +56,7 @@ export function generateFable(page, contexts, genContexts=true) {
     let title = name;
 
     let description = grammar.flatten("#[subject:"+subject+"][subjectAdj:"+subjectAdj+"][object:"+object+"][objectAdj:"+objectAdj+"]story#");
-    let summary = "An well-known fable";
+    let summary = "A Well-Known Fable";
 
     let links = {};
 

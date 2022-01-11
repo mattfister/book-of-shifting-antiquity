@@ -1,10 +1,11 @@
 import Header from "./Header";
 import { Container } from "react-bootstrap";
-import { getContextSeedsFromPath, getPageSeedFromPath } from "../utilities/SeedUtils";
+import { getContextSeedsFromPath, getPageSeedFromPageString, getPageSeedFromPath, getContextSeedsFromSeedString } from "../utilities/SeedUtils";
 import { generateContent } from "../generators/contentGenerator";
 import { Link } from "react-router-dom";
 import reactStringReplace from "react-string-replace";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import React, {useState} from 'react';
 
   
 function withRouter(Component) {
@@ -23,14 +24,17 @@ function withRouter(Component) {
     return ComponentWithRouterProp;
 }
 
-const Page = () => {
-    let content = generateContent(getPageSeedFromPath(), getContextSeedsFromPath());
+const Page = (props) => {
+    let content = generateContent(getPageSeedFromPageString(props.router.params.page), getContextSeedsFromSeedString(props.router.params.page));
 
     function replaceLinks(text, links) {
+        console.log('text = ' + text);
+        console.log(links);
+
         var outText = text;
         for (const [key, value] of Object.entries(links)) {
             outText = reactStringReplace(outText, key, (match, i) => (
-                <Link key={key} to={value}>{match}</Link>
+                <Link key={key+i} to={value}>{match}</Link>
             ))};
         return outText;
     };

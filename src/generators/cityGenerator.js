@@ -13,6 +13,9 @@ export function generateCity(page, contexts, genContexts=true) {
         "nameStart": ["Ab", "Arr", "At", "Ap", "As", "Ad", "T", "Y", "P", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"],
         "nameSyl": ["ia","ar","us","os","in","it","ix","ast","or","arth","irth","aunt","as","y", "asgard", "imont"],
         "name": ["#nameStart##nameSyl#", "#nameStart##nameSyl##nameSyl#", "#nameStart##nameSyl##nameSyl##nameSyl#", "#nameStart##nameSyl# #nameStart##nameSyl#"],
+        "size": ["small", "large"],
+        "type": ["village", "town", "hamlet", "city"],
+        "description": "#name# is a #size# #type#."
     });
 
     grammar.addModifiers(tracery.baseEngModifiers);
@@ -20,8 +23,8 @@ export function generateCity(page, contexts, genContexts=true) {
     let name = grammar.flatten("#name#");
     let title = name;
 
-    let description = name;
-    let summary = "A city";
+    let description = grammar.flatten("#[name:"+name+"]description#");
+    let summary = "A City";
 
     let links = {}
     if (genContexts) {
@@ -29,6 +32,12 @@ export function generateCity(page, contexts, genContexts=true) {
             let content = generateContent(context, [page], false);
             if (content.type === "artifact") {
                 description += " " + name + " contains the artifact " + content.name + "."
+                links[content.name] = getContextLink(context, [page]);
+            } else if (content.type === "horror") {
+                description += " " + name + " was haunted by the horror " + content.name + "."
+                links[content.name] = getContextLink(context, [page]);
+            } else if (content.type === "road") {
+                description += " " + content.name + " runs through " + name + ".";
                 links[content.name] = getContextLink(context, [page]);
             }
             

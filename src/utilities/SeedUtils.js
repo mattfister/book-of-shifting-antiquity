@@ -9,6 +9,10 @@ export function getContextSeedsFromPath() {
     return window.location.href.split('/').pop().split('_').slice(1);
 }
 
+export function getPageSeedFromPageString(seedString) {
+    return seedString.split('/').pop().split('_')[0];
+}
+
 export function getContextSeedsFromSeedString(seedString) {
     return seedString.split('/').pop().split('_').slice(1);
 }
@@ -25,10 +29,33 @@ export function choice(rng, choices) {
 
 function getSeed(rng) {
     var pageSeed = rng().toString(36).slice(2)
-    pageSeed = choice(rng, ["a-", "h-", "f-", "c-"])+pageSeed;
+    pageSeed = choice(rng, ["a-", "h-", "f-", "c-", "r-"])+pageSeed;
     return pageSeed;
 }
 
+function getPrefixForType(type) {
+    switch(type) {
+        case 'artifact':
+            return 'a';
+        case 'horror':
+            return 'h';
+        case 'fable':
+            return 'f';
+        case 'city':
+            return 'c';
+        case 'road':
+            return 'r';
+        default:
+            break;    
+    }
+    return;
+}
+
+export function getSeedForContentType(rng, type) {
+    var pageSeed = rng().toString(36).slice(2)
+    pageSeed = getPrefixForType(type)+'-'+pageSeed;
+    return pageSeed;
+}
 
 export function getPageSeedAndContext(seed) {
     let rng = seedrandom(seed);
@@ -50,6 +77,11 @@ export function getPageLink(seed, contexts = []) {
     contexts.forEach(context => {
         link += '_' + context;
     });
+    return link;
+}
+
+export function getRandomPageLink() {
+    var link ='/#/page/' + getPageSeedAndContext(Date.now());
     return link;
 }
 

@@ -1,5 +1,7 @@
 import tracery from '../utilities/tracery'
 import seedrandom from 'seedrandom';
+import { generateContent } from './contentGenerator';
+import { getContextLink } from '../utilities/SeedUtils';
 
 export function generateHorror(page, contexts, genContexts=true) {
     
@@ -52,7 +54,17 @@ export function generateHorror(page, contexts, genContexts=true) {
     let description =  grammar.flatten('#[horror:'+name+']horror-description#');
     let summary = 'An Unspeakable Horror';
 
-    let links = {};
+    let links = {}
+    if (genContexts) {
+        contexts.forEach(context => {
+            let content = generateContent(context, [page], false);
+            if (content.type === "city") {
+                description += " " + name + " haunted the city " + content.name + "."
+                links[content.name] = getContextLink(context, [page]);
+            }
+            
+        }) 
+    }
 
     return {"title": title, "name": name, "description": description, "summary": summary, "type": "horror", "links": links}
 }

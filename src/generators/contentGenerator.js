@@ -2,6 +2,7 @@ import { generateArtifact } from "./artifactGenerator";
 import { generateCity } from "./cityGenerator";
 import { generateFable } from "./fableGenerator";
 import { generateHorror } from "./horrorGenerator";
+import { generateRoad } from "./roadGenerator";
 
 export function generateContent(page, contexts, genContexts=true) {
     console.log('generating page=' + page + " contexts=" + contexts)
@@ -15,6 +16,8 @@ export function generateContent(page, contexts, genContexts=true) {
             return generateFable(page, contexts, genContexts);
         case 'c':
             return generateCity(page, contexts, genContexts);
+        case 'r':
+            return generateRoad(page, contexts, genContexts);
         default:
             break;    
     }
