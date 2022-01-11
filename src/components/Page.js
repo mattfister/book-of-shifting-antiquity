@@ -42,7 +42,7 @@ const Page = (props) => {
     return (
         <>
             <Header/>
-            <Container className="mx-auto pt-5" style={{width: '640px'}}>
+            <Container className="mx-auto pt-5" style={{maxWidth: '640px'}}>
                 <h2 className = "text-center">
                     { content.name }
                 </h2>
