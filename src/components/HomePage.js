@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import { getContextSeedsFromSeedString, getPageLink, getPageSeedAndContext, getPageSeed } from "../utilities/SeedUtils";
 import { generateContent } from "../generators/contentGenerator";
 import Bookmark from "./Bookmark";
+import { useTitle } from "../hooks/useTitle";
 
 function getBookmarkInfo(i) {
     let seed = Math.floor(new Date()/8.64e7) + i;
@@ -17,6 +18,8 @@ const HomePage = () => {
 
     let bookmarks = [...Array(100)].map((x, i) => getBookmarkInfo(i) );
 
+
+    useTitle();
     return (
         <>
             <Header></Header>

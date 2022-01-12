@@ -1,5 +1,7 @@
 import { alea }  from "seedrandom";
 
+const CONTENT_TYPES = ["artifact", "horror", "fable", "city", "road"]
+
 export function getPageSeedFromPath() {
     return window.location.href.split('/').pop().split('_')[0];
 }
@@ -28,26 +30,12 @@ export function choice(rng, choices) {
 
 function getSeed(rng) {
     var pageSeed = rng().toString(36).slice(2)
-    pageSeed = choice(rng, ["a-", "h-", "f-", "c-", "r-"])+pageSeed;
+    pageSeed = choice(rng, CONTENT_TYPES)+'-'+pageSeed;
     return pageSeed;
 }
 
 function getPrefixForType(type) {
-    switch(type) {
-        case 'artifact':
-            return 'a';
-        case 'horror':
-            return 'h';
-        case 'fable':
-            return 'f';
-        case 'city':
-            return 'c';
-        case 'road':
-            return 'r';
-        default:
-            break;    
-    }
-    return;
+    return type;
 }
 
 export function getSeedForContentType(rng, type) {

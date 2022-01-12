@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import reactStringReplace from "react-string-replace";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import React, {useState} from 'react';
+import { useTitle } from "../hooks/useTitle";
 
   
 function withRouter(Component) {
@@ -39,6 +40,7 @@ const Page = (props) => {
         return outText;
     };
 
+    useTitle(content.name)
     return (
         <>
             <Header/>

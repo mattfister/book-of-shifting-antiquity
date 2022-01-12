@@ -6,19 +6,21 @@ import { generateRoad } from "./roadGenerator";
 
 export function generateContent(page, contexts, genContexts=true) {
     console.log('generating page=' + page + " contexts=" + contexts)
-    let choice = page.charAt(0);
+    let choice = page.split('-')[0];
+    console.log(choice);
     switch(choice) {
-        case 'a':
+        case "artifact":
             return generateArtifact(page, contexts, genContexts);
-        case 'h':
+        case "horror":
             return generateHorror(page, contexts, genContexts);
-        case 'f':
+        case "fable":
             return generateFable(page, contexts, genContexts);
-        case 'c':
+        case "city":
             return generateCity(page, contexts, genContexts);
-        case 'r':
+        case "road":
             return generateRoad(page, contexts, genContexts);
         default:
+            console.error("bad!")
             break;    
     }
     return;
