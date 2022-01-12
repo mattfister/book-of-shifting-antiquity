@@ -1,11 +1,11 @@
 import tracery from '../utilities/tracery'
-import seedrandom from 'seedrandom';
+import { alea } from 'seedrandom';
 import { getContextLink, getContextSeedsFromPath, getPageLink } from '../utilities/SeedUtils';
 import { generateContent } from './contentGenerator';
 
 export function generateArtifact(page, contexts = [], genContexts=true) {
     
-    tracery.setRandom(new seedrandom(page));
+    tracery.setRandom(new alea(page));
 
     var grammar = tracery.createGrammar({
         "title": "Artifacts",

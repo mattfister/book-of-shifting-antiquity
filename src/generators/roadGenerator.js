@@ -1,5 +1,5 @@
 import tracery from '../utilities/tracery'
-import seedrandom from 'seedrandom';
+import { alea } from 'seedrandom';
 import { generateContent } from './contentGenerator';
 import { getContextLink, getContextSeedsFromSeedString, getPage, getPageSeedAndContext, getSeedForContentType } from '../utilities/SeedUtils';
 import { generateCity } from './cityGenerator';
@@ -7,7 +7,10 @@ import { generateCity } from './cityGenerator';
 
 export function generateRoad(page, contexts, genContexts=true) {
     
-    let rng = new seedrandom(page);
+    let rng = new alea(page);
+    console.log(rng())
+
+
     tracery.setRandom(new rng);
 
     let city1Seed = getSeedForContentType(rng, 'city');

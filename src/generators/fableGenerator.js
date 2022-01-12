@@ -1,9 +1,9 @@
 import tracery from '../utilities/tracery'
-import seedrandom from 'seedrandom';
+import alea from 'seedrandom';
 
 export function generateFable(page, contexts, genContexts=true) {
     
-    tracery.setRandom(new seedrandom(page));
+    tracery.setRandom(new alea(page));
 
     var grammar = tracery.createGrammar({
         "title": "Fables",

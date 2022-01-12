@@ -1,5 +1,4 @@
-import context from "react-bootstrap/esm/AccordionContext";
-import seedrandom from "seedrandom";
+import { alea }  from "seedrandom";
 
 export function getPageSeedFromPath() {
     return window.location.href.split('/').pop().split('_')[0];
@@ -18,7 +17,7 @@ export function getContextSeedsFromSeedString(seedString) {
 }
 
 export function getRandom() {
-    let rng = seedrandom('hello');
+    let rng = alea('hello');
     return rng();
 }
 
@@ -58,7 +57,7 @@ export function getSeedForContentType(rng, type) {
 }
 
 export function getPageSeedAndContext(seed) {
-    let rng = seedrandom(seed);
+    let rng = alea(seed);
     var pageSeed = getSeed(rng);
     for (let i = 0; i < 3; i++) {
         var contextSeed = getSeed(rng);
@@ -68,7 +67,7 @@ export function getPageSeedAndContext(seed) {
 }
 
 export function getPageSeed(seed) {
-    let rng = seedrandom(seed);
+    let rng = alea(seed);
     return getSeed(rng);
 }
 
@@ -90,7 +89,7 @@ export function getContextLink(contextSeed, contexts = []) {
     
     var newContexts = contexts;
     
-    let rng = seedrandom(contextSeed);
+    let rng = alea(contextSeed);
 
     var contextsLength = newContexts.length;
     while (contextsLength < 3) {

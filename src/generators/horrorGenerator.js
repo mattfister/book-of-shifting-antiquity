@@ -1,11 +1,11 @@
 import tracery from '../utilities/tracery'
-import seedrandom from 'seedrandom';
+import { alea } from 'seedrandom';
 import { generateContent } from './contentGenerator';
 import { getContextLink } from '../utilities/SeedUtils';
 
 export function generateHorror(page, contexts, genContexts=true) {
     
-    tracery.setRandom(new seedrandom(page));
+    tracery.setRandom(new alea(page));
 
     var grammar = tracery.createGrammar({
         "title": "Astral Horrors",

@@ -1,12 +1,12 @@
 import tracery from '../utilities/tracery'
-import seedrandom from 'seedrandom';
+import { alea } from 'seedrandom';
 import { generateContent } from './contentGenerator';
 import { getContextLink, getContextSeedsFromPath, getPageLink } from '../utilities/SeedUtils';
 
 
 export function generateCity(page, contexts, genContexts=true) {
     
-    tracery.setRandom(new seedrandom(page));
+    tracery.setRandom(new alea(page));
 
     var grammar = tracery.createGrammar({    
 
