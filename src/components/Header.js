@@ -1,6 +1,6 @@
-import { Container, Nav, Navbar } from "react-bootstrap"
+import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap"
 import { Link } from "react-router-dom";
-import { getRandomPageLink } from "../utilities/SeedUtils";
+import { getRandomPageLink, getRandomPageLinkForType } from "../utilities/SeedUtils";
 
 const Header = () => {
     return (
@@ -10,7 +10,14 @@ const Header = () => {
             </Container>
             <Nav className="me-auto"/>
             <Nav className="d-flex">
-                <Nav.Link href={getRandomPageLink()}>Random Page</Nav.Link>
+                <NavDropdown title="Random Page" id="basic-nav-dropdown">
+                    <NavDropdown.Item href={getRandomPageLink()}>Any Page</NavDropdown.Item>
+                    <NavDropdown.Item href={getRandomPageLinkForType('artifact')}>Artifact Page</NavDropdown.Item>
+                    <NavDropdown.Item href={getRandomPageLinkForType('city')}>City Page</NavDropdown.Item>
+                    <NavDropdown.Item href={getRandomPageLinkForType('fable')}>Fable Page</NavDropdown.Item>
+                    <NavDropdown.Item href={getRandomPageLinkForType('horror')}>Horror Page</NavDropdown.Item>
+                    <NavDropdown.Item href={getRandomPageLinkForType('road')}>Road Page</NavDropdown.Item>
+                </NavDropdown>
             </Nav>
         </Navbar>
     )

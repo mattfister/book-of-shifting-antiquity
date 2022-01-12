@@ -67,6 +67,7 @@ export function generateFable(page, contexts, genContexts=true) {
     let objectAdj = grammar.flatten("#[objectAdj:#charAdj#]objectAdj#")
 
     console.log(object);
+    console.log(object);
     
     let name = grammar.flatten("#[subject:"+subject+"][object:"+object+"]name#");
     let title = name;

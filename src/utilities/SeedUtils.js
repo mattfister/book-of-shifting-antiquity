@@ -54,6 +54,16 @@ export function getPageSeedAndContext(seed) {
     return pageSeed;
 }
 
+export function getPageSeedAndContextForType(seed, type) {
+    let rng = alea(seed);
+    var pageSeed = getSeedForContentType(rng, type);
+    for (let i = 0; i < 3; i++) {
+        var contextSeed = getSeed(rng);
+        pageSeed = pageSeed + '_' + contextSeed;
+    }
+    return pageSeed;
+}
+
 export function getPageSeed(seed) {
     let rng = alea(seed);
     return getSeed(rng);
@@ -69,6 +79,11 @@ export function getPageLink(seed, contexts = []) {
 
 export function getRandomPageLink() {
     var link ='/book-of-shifting-antiquity/#/page/' + getPageSeedAndContext(Date.now());
+    return link;
+}
+
+export function getRandomPageLinkForType(type) {
+    var link ='/book-of-shifting-antiquity/#/page/' + getPageSeedAndContextForType(Date.now(), type);
     return link;
 }
 
