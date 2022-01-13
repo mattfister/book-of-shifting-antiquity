@@ -855,6 +855,9 @@
             default:
                 return s + "ed";
             }
+        },
+        the : function(s) {
+            return "the " + s;
         }
     };
 

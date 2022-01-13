@@ -12,11 +12,11 @@ export function generateFable(page, contexts, genContexts=true) {
         "name": ["The #typeOfStory# of the #subject# and the #object#"],
 
         "character": ["Turtle", "Frog", "Scorpion", "Snake", "Bear", "Antelope", "Wizard", "Fairy Queen", "Fairy", "Knight", "Warlock", "Witch", "Baker", "King", "Queen", "Merchant"],
-        "charAdj": ["wise", "foolish", "stupid", "greedy", "strange"],
+        "charAdj": ["wise", "foolish", "stupid", "greedy", "strange", "poor", "rich", "crafty", "honest", "sneaky", "truthful", "dishonest"],
 
         "subjectMaybeAdj": ["#subject#", "#subjectAdj# #subject#"],
 
-        "action": ["who set out to see the world", "who lived in a small hamlet", "who had gotten hurt", "who wanted #subjectsDesire#", "who wanted #subjectsDesire#, because it had been lost"],
+        "action": ["who set out to see the world", "who lived in a small hamlet", "who had gotten hurt", "who wanted #subjectsDesire#", "who wanted #subjectsDesire#, because the #subject# had lost it"],
 
         "opening": ["Many years ago,", "A long time ago,", "In an era that predated our time,", "Once upon a time,"],
         "setup": ["there once was", "there lived", "there was"],
@@ -27,9 +27,9 @@ export function generateFable(page, contexts, genContexts=true) {
         "time": ["morning", "afternoon", "evening"],
         "when": "On a #weather# #time#,",
 
-        "sentenceTwo": "#when# the #subject# met a #objectAdj# #object#.",
+        "sentenceTwo": "#when# the #subject# met #objectAdj.a# #object#.",
 
-        "desire": ["money", "love", "sanity", "food", "magic spells", "sense of purpose", "sight", ],
+        "desire": ["money", "love", "food", "magic spells", "riches"],
         "interaction": ["asked the #object# for #subjectsDesire#",],
 
         "negativeResponseAction": ["refused", "ran away", "hid from the #subjectMaybeAdj#", "struck the #subjectMaybeAdj#"],
@@ -47,10 +47,10 @@ export function generateFable(page, contexts, genContexts=true) {
         "sentenceSix" : ["The #subjectMaybeAdj# waited until a #weather# #time#, and put its plan into action."],
 
         "positiveMorals" : ["Always take what you deserve.", "Never count yourself out.", "A well made plan pays off."],
-        "positiveEnding" : ["It worked! The #subjectMaybeAdj# got #subjectsDesire# from the #object#. The moral of this story: #positiveMorals#"],
+        "positiveEnding" : ["It worked! The #subjectMaybeAdj# got #subjectsDesire.the# from the #object#. The moral of this story: #positiveMorals#"],
 
         "negativeMorals" : ["A #object# can't be beat.", "Never try to take what you did not earn.", "If you are #subjectAdj# you won't succeed."],
-        "negativeEnding" : ["It did not work! The #subjectMaybeAdj# did not get #subjectsDesire# from the #object#. The moral of this story: #negativeMorals#"],
+        "negativeEnding" : ["It did not work! The #subjectMaybeAdj# did not get #subjectsDesire.the# from the #object#. The moral of this story: #negativeMorals#"],
 
         "sentenceSeven" : ["#positiveEnding#", "#negativeEnding#"],
 

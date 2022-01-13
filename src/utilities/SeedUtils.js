@@ -1,6 +1,6 @@
 import { alea }  from "seedrandom";
 
-const CONTENT_TYPES = ["artifact", "horror", "fable", "city", "road"]
+export const CONTENT_TYPES = ["artifact", "horror", "fable", "city", "road", "plant"]
 
 export function getPageSeedFromPath() {
     return window.location.href.split('/').pop().split('_')[0];
@@ -83,6 +83,7 @@ export function getRandomPageLink() {
 }
 
 export function getRandomPageLinkForType(type) {
+    console.log('get random for type ' + type)
     var link ='/book-of-shifting-antiquity/#/page/' + getPageSeedAndContextForType(Date.now(), type);
     return link;
 }
