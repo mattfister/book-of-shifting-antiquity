@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/book-of-shifting-antiquity/static/css/main.56e6221f.css",
-    "main.js": "/book-of-shifting-antiquity/static/js/main.66d3df29.js",
+    "main.js": "/book-of-shifting-antiquity/static/js/main.6cb43a91.js",
     "static/js/787.734da526.chunk.js": "/book-of-shifting-antiquity/static/js/787.734da526.chunk.js",
     "index.html": "/book-of-shifting-antiquity/index.html",
     "main.56e6221f.css.map": "/book-of-shifting-antiquity/static/css/main.56e6221f.css.map",
-    "main.66d3df29.js.map": "/book-of-shifting-antiquity/static/js/main.66d3df29.js.map",
+    "main.6cb43a91.js.map": "/book-of-shifting-antiquity/static/js/main.6cb43a91.js.map",
     "787.734da526.chunk.js.map": "/book-of-shifting-antiquity/static/js/787.734da526.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.56e6221f.css",
-    "static/js/main.66d3df29.js"
+    "static/js/main.6cb43a91.js"
   ]
 }
