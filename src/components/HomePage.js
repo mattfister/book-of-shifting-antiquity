@@ -28,7 +28,7 @@ const HomePage = () => {
                 This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
                 </Row>
                 <h4 className="mx-auto pb-3 text-center">Bookmarks</h4>
-                <Row xs="auto" className="mb-5">
+                <Row xs="auto" className="mb-5 justify-content-around">
                     {bookmarks.map((x, i) =>
                     <Col key={i} className="mb-5">
                         <Bookmark title={x.content.title} link={x.pageLink} summary={x.content.summary}/>

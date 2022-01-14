@@ -7,7 +7,7 @@ export function generatePlant(page, contexts, genContexts=true) {
 
     var grammar = tracery.createGrammar({
     
-        "type": ["bush", "shrub", "plant"],
+        "type": ["bush", "shrub", "plant", "tree"],
         "summary": "A #plantType.capitalize#"
 
     });
@@ -37,18 +37,48 @@ export function generatePlant(page, contexts, genContexts=true) {
 
             "flowerColor": ["light-blue", "pink", "white", "yellow", "red", "orange", "violet"],
 
-            "flowerDescription": ["", " and blossom in clusters", " and grow on long stems" ],
+            "flowerDescription": ["", " and blossom in clusters", " and grow on long stems", " and produce a strong fragrance" ],
 
             "sentenceTwo": "When it blooms, its flowers are #flowerColor##flowerDescription#.",
 
             "description": "#sentenceOne# #sentenceTwo#"
         })
 
+        plantGrammar.addModifiers(tracery.baseEngModifiers);
+
         name = plantGrammar.flatten("#[plantName:#name#]name#");
 
         description = plantGrammar.flatten("#[plantName:" + name + "][plantType:" + plantType + "]description#");
 
     } else {
+        var treeGrammar = tracery.createGrammar({
+            "syllable1": ["Al", "Il", "Mar", "Cal", "Dian", "Sen"],
+            "syllable2": ["oe", "ti", "si", "chi", "li", "lie", "loe", "sel"],
+            "syllable3": ["ella", "lis", "tis", "ria", "sum", "tum", "ta"],
+            "nameWord": ["#syllable1##syllable2##syllable3#", "#syllable1##syllable2##syllable3#"],
+            "name": "#nameWord# Tree",
+
+            "size": ["short", "medium-sized", "large"],
+            "leafColor": ["dark-green", "green", "light-green", "yellow", "red", "orange"],
+
+            "leafType": ["leaves", "needles"],
+            "sentenceOne": "#plantName.the.capitalize# is a #size# #plantType# with #size# #leafColor# #leafType#.",
+
+            "flowerColor": ["light-blue", "pink", "white", "yellow", "red", "orange", "violet"],
+
+            "flowerDescription": ["", " and blossom in clusters", " and grow on long stems" ],
+
+            "seedAdj": ["delicate", "hard", "round", "large", "small", "tarry", "spikey", "spined", "smooth", "rough", "sticky"],
+            "seedType": ["nuts", "cones", "pods", "balls" ],
+            "sentenceTwo": ["When it blooms, its flowers are #flowerColor##flowerDescription#.", "Its seeds are #seedAdj# #seedType#."],
+
+            "description": "#sentenceOne# #sentenceTwo#"
+
+        })
+        treeGrammar.addModifiers(tracery.baseEngModifiers);
+        name = treeGrammar.flatten("#[plantName:#name#]name#");
+        description = treeGrammar.flatten("#[plantName:" + name + "][plantType:" + plantType + "]description#");
+
 
     }
 

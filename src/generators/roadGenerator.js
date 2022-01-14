@@ -59,7 +59,7 @@ export function generateRoad(page, contexts, genContexts=true) {
     let title = name;
 
     let description = grammar.flatten("#[fullName:"+name+"][city1Name:"+city1.name+"][city2Name:"+city2.name+"][plant1Name:"+plant1.name+"][plant2Name:"+plant2.name+"]description#");
-    let summary = "A Road";
+    let summary = "A " + roadType;
 
     let links = {}
     links[city1.name] = getContextLink(city1Seed, [page]);
