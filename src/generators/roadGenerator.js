@@ -12,7 +12,7 @@ export function generateRoad(page, contexts, genContexts=true) {
     console.log(rng())
 
 
-    tracery.setRandom(new rng);
+    tracery.setRandom(rng);
 
     let city1Seed = getSeedForContentType(rng, 'city');
     let city1SeedString = getPageSeedAndContext(city1Seed);

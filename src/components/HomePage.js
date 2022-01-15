@@ -18,24 +18,25 @@ const HomePage = () => {
 
     let bookmarks = [...Array(100)].map((x, i) => getBookmarkInfo(i) );
 
-
     useTitle();
     return (
         <>
             <Header></Header>
-            <Container className="mx-auto pt-5" style={{maxWidth: '960px'}}>
-                <Row className="mx-auto mb-5" style={{maxWidth: '640px'}}>
-                This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
-                </Row>
-                <h4 className="mx-auto pb-3 text-center">Bookmarks</h4>
-                <Row xs="auto" className="mb-5 justify-content-around">
-                    {bookmarks.map((x, i) =>
-                    <Col key={i} className="mb-5">
-                        <Bookmark title={x.content.title} link={x.pageLink} summary={x.content.summary}/>
-                    </Col>
-                    )}
-                </Row> 
-            </Container>
+            <div style={{backgroundColor: "black", color:"white"}}>
+                <Container className="mx-auto pt-5" style={{maxWidth: '960px'}}>
+                    <Row className="mx-auto mb-5" style={{maxWidth: '640px'}}>
+                    This book contains descriptions of the legends and mysteries of this world. While I fear it may never be completed it is my best attempt to capture accurately our history and stories.
+                    </Row>
+                    <h4 className="mx-auto pb-3 text-center">Bookmarks</h4>
+                    <Row xs="auto" className="mb-5 justify-content-around">
+                        {bookmarks.map((x, i) =>
+                        <Col key={i} className="mb-5">
+                            <Bookmark title={x.content.title} link={x.pageLink} summary={x.content.summary} icon={x.content.icon}/>
+                        </Col>
+                        )}
+                    </Row> 
+                </Container>
+            </div>
         </>
     );
 };

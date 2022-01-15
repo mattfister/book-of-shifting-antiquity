@@ -2,6 +2,7 @@ import { generateArtifact } from "./artifactGenerator";
 import { generateCity } from "./cityGenerator";
 import { generateFable } from "./fableGenerator";
 import { generateHorror } from "./horrorGenerator";
+import { generateIcon } from "./iconGenerator";
 import { generatePlant } from "./plantGenerator";
 import { generateRoad } from "./roadGenerator";
 
@@ -9,22 +10,32 @@ export function generateContent(page, contexts, genContexts=true) {
     console.log('generating page=' + page + " contexts=" + contexts)
     let choice = page.split('-')[0];
     console.log(choice);
+    
+    let content = "hey";
     switch(choice) {
         case "artifact":
-            return generateArtifact(page, contexts, genContexts);
+            content = generateArtifact(page, contexts, genContexts);
+            break;
         case "horror":
-            return generateHorror(page, contexts, genContexts);
+            content = generateHorror(page, contexts, genContexts);
+            break;
         case "fable":
-            return generateFable(page, contexts, genContexts);
+            content = generateFable(page, contexts, genContexts);
+            break;
         case "city":
-            return generateCity(page, contexts, genContexts);
+            content = generateCity(page, contexts, genContexts);
+            break;
         case "road":
-            return generateRoad(page, contexts, genContexts);
+            content = generateRoad(page, contexts, genContexts);
+            break;
         case "plant":
-            return generatePlant(page, contexts, genContexts);
+            content = generatePlant(page, contexts, genContexts);
+            break;
         default:
             console.error("bad!")
+            content = "error!"
             break;    
     }
-    return;
+    content.icon = generateIcon(page);
+    return content;
 }

@@ -42,20 +42,28 @@ const Page = (props) => {
 
     useTitle(content.name)
     return (
-        <>
+        <div style={{backgroundColor: "black"}}>
             <Header/>
-            <Container className="mx-auto pt-5" style={{maxWidth: '640px'}}>
-                <h2 className = "text-center">
-                    { content.name }
-                </h2>
-                <h5 className = "text-center pb-4">
-                    {content.summary}
-                </h5>
-                <p>
-                    {replaceLinks(content.description, content.links)}
-                </p>
-            </Container>
-        </>
+            <div style={{backgroundColor: "black", color:"white"}}>
+                <Container className="mx-auto pt-5" style={{maxWidth: '640px'}}>
+                    <h2 className = "text-center">
+                        { content.name }
+                    </h2>
+                    <h5 className = "text-center pb-4">
+                        {content.summary}
+                    </h5>
+                    <p>
+                        {replaceLinks(content.description, content.links)}
+                    </p>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <>
+                        <div style={{display: 'flex', justifyContent: 'center'}} dangerouslySetInnerHTML={{ __html: content.icon}}/>
+                    </>
+                </Container>
+            </div>
+        </div>
     );
 };
 

@@ -17,7 +17,7 @@ const Header = () => {
                             {
                                 CONTENT_TYPES.map(type => {
                                     return(
-                                        <NavDropdown.Item href={getRandomPageLinkForType(type)}>{type.charAt(0).toUpperCase() + type.slice(1)} Page</NavDropdown.Item>
+                                        <NavDropdown.Item key={type} href={getRandomPageLinkForType(type)}>{type.charAt(0).toUpperCase() + type.slice(1)} Page</NavDropdown.Item>
                                     );
                                 })
                             }
