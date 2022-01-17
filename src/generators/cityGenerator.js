@@ -1,7 +1,7 @@
 import tracery from '../utilities/tracery'
 import { alea } from 'seedrandom';
 import { generateContent } from './contentGenerator';
-import { getContextLink, getContextSeedsFromPath, getPageLink } from '../utilities/SeedUtils';
+import { getContextLink} from '../utilities/SeedUtils';
 
 
 export function generateCity(page, contexts, genContexts=true) {
@@ -15,7 +15,11 @@ export function generateCity(page, contexts, genContexts=true) {
         "name": ["#nameStart##nameSyl#", "#nameStart##nameSyl##nameSyl#", "#nameStart##nameSyl##nameSyl##nameSyl#", "#nameStart##nameSyl# #nameStart##nameSyl#"],
         "size": ["small", "large"],
         "type": ["village", "town", "hamlet", "city"],
-        "description": "#name# is a #size# #type#."
+        "building": ["academy", "adventurer's guild", "alchemist's shop", "antique store", "apothecary", "aqueduct", "armory", "auction house", "bakery", "bank", "barber", "barracks", "bazaar", "beer garden", "book store", "butcher shop", "chapel", "church", "jail", "clothing shop", "court hosue", "crypt", "farmer's market", "flour mill", "garrison", "graveyard", "harbour", "herbalist shop", "horse trader", "hospital", "inn", "blacksmith's shop", "jail", "jewelry store", "locksmiths's shop", "market", "meadery", "park", "plaza", "pub", "prison", "refinery", "sawmill", "shrine", "spice shop", "stables", "stockades", "tailor's shop", "tannery", "temple", "theater", "townhall", "warehouse", "water mill", "wind mill", "wizard's tower"],
+        "contentRelation": ["It is known for its", "It has a"],
+        "contents": ["#contentRelation# #building#.", "#contentRelation# #building# and #building#.", ""],
+        
+        "description": "#name# is a #size# #type#. #contents#", 
     });
 
     grammar.addModifiers(tracery.baseEngModifiers);
