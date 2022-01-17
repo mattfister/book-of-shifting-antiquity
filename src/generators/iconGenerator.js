@@ -22,9 +22,11 @@ export function generateIcon(page) {
         "svgColor" : ["hsl(#r255#, #largeDigit##digit#%, #largeDigit##digit#%)"],
         "darkColor" : ["hsl(#r255#, #smallDigit##digit#%, #digit##digit#%)"],
         "svgStyle" : ["fill=\"url(\\##gradID#)\" fill-opacity=\"0.7\""],
-        "bg" : ["<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#circleField#"],
+        "bg" : ["<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#circleField#", "<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#lineField#", "<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#lineField##circleField#"],
+        "line" : ["<line x1='#r255#' y1='#r255#' x2='#r255#' y2='#r255#' stroke='#svgColor#'/>"],
         "circle" : ["<circle fill='#svgColor#' fill-opacity='0.4' cx='#r255#' cy='#r255#' r='#digit##digit#.#digit#'/>"],
         "circleField" : ["#circle#", "#circle#",  "#circle#circle#", "#circle#circle#circle#"],
+        "lineField" : ["#line#", "#line#line#", "#line##line##line#"],
         "svgImg" : ["<svg viewBox=\"0 0 18rem 18rem\" width=\"18rem\" height=\"18rem\" style=\"border-radius: 45%\">#bg#</svg>"],
         "origin" : "{svg #svgImg#}"
     });
