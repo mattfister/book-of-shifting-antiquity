@@ -1,6 +1,6 @@
 import { alea }  from "seedrandom";
 
-export const CONTENT_TYPES = ["artifact", "horror", "fable", "city", "road", "plant"]
+export const CONTENT_TYPES = ["artifact", "horror", "fable", "city", "road", "plant", "region"]
 
 export function getPageSeedFromPath() {
     return window.location.href.split('/').pop().split('_')[0];

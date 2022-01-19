@@ -5,6 +5,7 @@ import { generateHorror } from "./horrorGenerator";
 import { generateIcon } from "./iconGenerator";
 import { generatePlant } from "./plantGenerator";
 import { generateRoad } from "./roadGenerator";
+import { generateRegion } from "./regionGenerator";
 
 export function generateContent(page, contexts, genContexts=true) {
     console.log('generating page=' + page + " contexts=" + contexts)
@@ -30,6 +31,9 @@ export function generateContent(page, contexts, genContexts=true) {
             break;
         case "plant":
             content = generatePlant(page, contexts, genContexts);
+            break;
+        case "region":
+            content = generateRegion(page, contexts, genContexts);
             break;
         default:
             console.error("bad!")
