@@ -23,7 +23,7 @@ export function generateIcon(page) {
         "darkColor" : ["hsl(#r255#, #smallDigit##digit#%, #digit##digit#%)"],
         "svgStyle" : ["fill=\"url(\\##gradID#)\" fill-opacity=\"0.7\""],
         "bg" : ["<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#circleField#", "<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#lineField#", "<rect fill='#darkColor#'  x='0' y='0' width='300' height='300'/>#lineField##circleField#"],
-        "line" : ["<line x1='#r255#' y1='#r255#' x2='#r255#' y2='#r255#' stroke='#svgColor#'/>"],
+        "line" : ["<line x1='#r255#' y1='#r255#' x2='#r255#' y2='#r255#' stroke='#svgColor#' stroke-width='#smallDigit#' />"],
         "circle" : ["<circle fill='#svgColor#' fill-opacity='0.4' cx='#r255#' cy='#r255#' r='#digit##digit#.#digit#'/>"],
         "circleField" : ["#circle#", "#circle#",  "#circle#circle#", "#circle#circle#circle#"],
         "lineField" : ["#line#", "#line#line#", "#line##line##line#"],
